@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read/write access to translations for analytics
+    match /translations/{document} {
+      allow read: if true;
+      allow write: if true;
+    }
+    
+    // Session store (used by connect-firestore)
+    match /sessions/{document} {
+      allow read, write: if true;
+    }
+    
+    // User feedback/contact submissions
+    match /feedback/{document} {
+      allow create: if true;
+      allow read: if false;
+    }
+    
+    // Analytics data
+    match /analytics/{document} {
+      allow read: if true;
+      allow write: if true;
+    }
+    
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://your-project-id.web.app/sitemap.xml
+
+# AdSense verification (replace with your verification file)
+# User-agent: Mediapartners-Google
+# Allow: /
+
+# Block access to admin or sensitive areas
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: /.env
+Disallow: /functions/
+
+# Allow important pages for SEO
+Allow: /
+Allow: /about
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /disclaimer
+Allow: /contact
+
+# Crawl delay (optional)
+Crawl-delay: 1
